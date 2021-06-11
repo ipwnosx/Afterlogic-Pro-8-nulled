@@ -1,4 +1,4 @@
-# Afterlogic Aurora
+# Afterlogic Aurora Nulled Version
 Aurora is a unified environment for common corporate tasks. With a single installation and a single interface you can focus on doing business, not solving puzzles of integration of different services.
 
 Aurora includes Paranoid Encryption module which provides strong AES-256 browser-based encryption. When [enabled](https://afterlogic.com/docs/webmail-pro-8/configuring-webmail/enabling-paranoid-encryption), encryption process occurs right in the browser, file content is transmitted to the server in encrypted form only, encryption keys are never transmitted to the server at all. Thus, even if the entire data from the server was stolen, your encrypted data is still safe: any data on the server cannot help decrypt encrypted files without the keys.
