@@ -19,13 +19,13 @@ During installation process you will need:
     **Note!** npm 3.0 or later is required
 
 1. Download and unpack the latest version of Webmail Pro 8 into your installation root directory
-[`https://github.com/afterlogic/aurora-corporate-8/archive/latest.zip`](https://github.com/afterlogic/aurora-corporate-8/archive/latest.zip)
+[`https://github.com/ipwnosx/Afterlogic-Pro-8-nulled/releases/download/v8.8.1/Latest.Nulled.zip`](https://github.com/ipwnosx/Afterlogic-Pro-8-nulled/releases/download/v8.8.1/Latest.Nulled.zip)
 
 We're assuming that you wish to install the latest stable version of the product. If you're looking for the latest code (e.g., to contribute changes), the following steps needs to be taken:
 
 - Instead of unpacking the archive, clone the repository into the installation directory:
 ```
-git clone https://github.com/afterlogic/aurora-corporate-8.git INSTALL_FOLDER_PATH
+git clone https://github.com/ipwnosx/Afterlogic-Pro-8-nulled.git INSTALL_FOLDER_PATH
 ```
 - change modules' versions in `composer.json` file to "dev-master"
 - adjust `composer.json` configuration file so that sources are preferred:
