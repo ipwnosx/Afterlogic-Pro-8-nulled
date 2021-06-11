@@ -1,0 +1,30 @@
+{
+    "Disabled": [
+        true,
+        "bool"
+    ],
+    "AccessKey": [
+        "",
+        "string"
+    ],
+    "SecretKey": [
+        "",
+        "string"
+    ],
+    "Region": [
+        "",
+        "string"
+    ],
+    "Host": [
+        "",
+        "string"
+    ],
+    "BucketPrefix": [
+        "",
+        "string"
+    ],
+    "PresignedLinkLifetimeMinutes": [
+        60,
+        "int"
+    ]
+}

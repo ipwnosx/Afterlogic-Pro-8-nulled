@@ -1,0 +1,36 @@
+<div class="panel_top pathway">
+	<a data-bind="text: storageDisplayName(), click: function () { routeFiles(storageType(), ''); },
+		droppable: { valueFunc: function (oEvent, oUi) { filesDrop(null, oEvent, oUi); } }"></a>
+	<!-- ko foreach: pathItems() -->
+		<!-- ko if: !$parent.bPublic || $index() > 0 -->&raquo;<!-- /ko -->
+		
+		<!-- ko if: ($index() !== ($parent.pathItems().length - 1)) || $parent.searchPattern() !== '' -->		
+			<a data-bind="text: displayName(), click: function () { $parent.routeFiles(storageType(), fullPath()); },
+				droppable: { valueFunc: function (oEvent, oUi) { $root.filesDrop($data, oEvent, oUi); } }"></a>
+		<!-- /ko -->
+		
+		<!-- ko if: ($index() === ($parent.pathItems().length - 1)) &&  $parent.searchPattern() === '' -->		
+			<b data-bind="text: displayName()"></b>
+		<!-- /ko -->
+	<!-- /ko -->
+	<!-- ko if: searchPattern() !== '' -->		
+	&raquo; <b data-bind="i18n: {'key': '%MODULENAME%/LABEL_SEARCH_RESULTS'}"></b> (<a class="text" data-bind="i18n: {'key': '%MODULENAME%/LABEL_SEARCH_CLEAR'}, click: clearSearch"></a>)
+	<!-- /ko -->
+</div>
+<div class="panel_center unselectable" style="display: flex; overflow: hidden;" data-bind="splitterFlex: {name: 'files_list1', sizes: [50, 50]}, css: {dragover: dragover()}">
+	<div id="files_center_panel" style="height: 100%; width: 100%; flex-grow: 1;" data-bind="customScrollbar: {x: false}">
+		<div class="uploader_mask" data-bind="initDom: uploaderArea, css: {'active': bDragActiveComp}">
+			<div class="inner"></div>
+		</div>
+		<div class="files_scroll scroll-inner">
+			<div class="items_list">
+				<span class="list_notification" data-bind="visible: fileListInfoText()!==''">
+					<span class="description" data-bind="text: fileListInfoText()"></span>
+				</span>
+				<!-- ko template: {name: itemsViewTemplate} --><!-- /ko -->
+			</div>
+		</div>
+	</div>
+</div>
+
+

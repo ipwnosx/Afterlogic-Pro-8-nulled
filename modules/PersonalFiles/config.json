@@ -1,0 +1,10 @@
+{
+	"Disabled": [
+		false,
+		"bool"
+	],
+    "UserSpaceLimitMb": [
+        100,
+        "int"
+    ]
+}

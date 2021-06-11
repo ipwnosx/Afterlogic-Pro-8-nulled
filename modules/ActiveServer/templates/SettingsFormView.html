@@ -1,0 +1,28 @@
+<div class="panel_top">
+	<h2 class="settings_heading" data-bind="i18n: {'key': '%MODULENAME%/HEADING_SETTINGS_TAB'}"></h2>
+</div>
+<div class="panel_center">
+	<div class="fields">
+		<div class="fieldset">
+			<div class="row">
+				<span class="value" data-bind="i18n: {'key': '%MODULENAME%/INFO_SETTINGS_TAB'}"></span>
+			</div>
+			<div class="row">
+				<span class="label" data-bind="i18n: {'key': '%MODULENAME%/LABEL_SERVER_URL'}"></span>
+				<span class="value" data-bind="text: server"></span>
+			</div>
+			<div class="row">
+				<div class="hint" data-bind="text: infoCredentials"></div>
+				<div class="hint" data-bind="i18n: {'key': 'COREWEBCLIENT/INFO_DEMO_MOBILE_CREDENTIALS_HTML', 'type': 'html'}, visible: bDemo"></div>
+			</div>
+			<div class="row">
+				<div class="hint" data-bind="html: infoDemo, visible: bDemo"></div>
+			</div>
+			<div class="row" data-bind="visible: linkToManual().length > 0">
+				<span class="value">
+					<a data-bind="attr: { href: linkToManual, target:'_blank'}, i18n: {'key': '%MODULENAME%/LINK_TO_MANUAL'}"></a>
+				</span>
+			</div>
+		</div>
+	</div>
+</div>

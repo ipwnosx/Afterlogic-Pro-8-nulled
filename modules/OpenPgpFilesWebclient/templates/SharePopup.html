@@ -1,0 +1,61 @@
+<div class="popup" style="display: none;">
+	<div class="mask" data-bind="click: cancelPopup"></div>
+	<div class="popup_panel">
+		<span class="close" data-bind="click: cancelPopup"></span>
+
+		<div class="fields">
+			<div class="fieldset">
+				<div class="row">
+					<span class="label" data-bind="text: linkLabel()"></span>
+					<input readonly="readonly" spellcheck="false" class="value input" type="text" maxlength="255" data-bind="hasfocus: publicLinkFocus, value: publicLink, click: function () {$element.select();}" />
+				</div>
+				<div class="row" data-bind="visible: password()">
+					<span class="label" data-bind="i18n: {'key': 'COREWEBCLIENT/LABEL_PASSWORD'}"></span>
+					<input readonly="readonly" spellcheck="false" class="value input" type="text" maxlength="255" data-bind="value: password, click: function () {$element.select();}" />
+				</div>
+				<div class="row">
+					<span class="label" data-bind="i18n: {'key': '%MODULENAME%/LABEL_RECIPIENT'}, style: {'vertical-align': 'middle'}"></span>
+					<span class="input select-recipient">
+						<input id="select_recipient_input" class="value" spellcheck="false" type="text" autocomplete="on"
+							data-bind="value: recipientAutocomplete,
+							valueUpdate: ['blur', 'afterkeydown'],
+							autocompleteSimple: {callback: autocompleteCallback.bind($data), dataAccessor: recipientAutocompleteItem}
+						" />
+						<span class="icon" data-bind="visible: recipientAutocompleteItem() && recipientAutocompleteItem().hasKey"></span>
+					</span>
+				</div>
+				<div class="row" data-bind="style: {'visibility': recipientAutocompleteItem() ? 'visible' : 'hidden'}">
+					<span class="hint" data-bind="html: recipientAutocompleteItem() ? sendLinkHintText() : '&nbsp;<br>&nbsp;' "></span>
+				</div>
+				<div class="row" data-bind="visible: password()">
+					<div style="white-space: nowrap;" data-bind="css: {'disabled': !isSigningAvailable()}">
+						<label data-bind="css: {'checked': sign}, enable: isSigningAvailable()" class="custom_checkbox checked">
+							<span class="icon"></span>
+							<input type="checkbox" data-bind="checked: sign, enable: isSigningAvailable()" id="openpgp-sign" />
+						</label>
+						<label data-bind="i18n: {'key': '%MODULENAME%/LABEL_SIGN'}, style: {'margin': '5px 0', 'display': 'inline-block'}" for="openpgp-sign"></label>
+					</div>
+				</div>
+				<div class="row" data-bind="visible: password()">
+					<span class="hint" data-bind="text: signEmailHintText"></span>
+				</div>
+			</div>
+			<div class="buttons">
+				<span class="button contour_button" data-bind="i18n: {'key': '%MODULENAME%/ACTION_SHOW_HISTORY'}, click: showHistory, visible: bAllowShowHistory"></span>
+				<!-- ko foreach: addButtons -->
+					<!-- ko template: {name: $data.ViewTemplate, data: $data} --><!-- /ko -->
+				<!-- /ko -->
+				<span class="button remove" data-bind="click: recipientAutocompleteItem() ? sendEmail : false, css: {'disabled': !recipientAutocompleteItem()}">
+					<span data-bind="i18n: {'key':  '%MODULENAME%/ACTION_SEND_EMAIL'}, visible: !isEmailEncryptionAvailable()"></span>
+					<span data-bind="i18n: {'key':  '%MODULENAME%/ACTION_SEND_ENCRYPTED_EMAIL'}, visible: isEmailEncryptionAvailable()"></span>
+				</span>
+				<span class="button remove" data-bind="click: isRemovingPublicLink() ? false: onCancelSharingClick, css: {'disabled': isRemovingPublicLink()}">
+					<span data-bind="i18n: {'key':  '%MODULENAME%/ACTION_REMOVE_PUBLIC_LINK'}, visible: !isRemovingPublicLink()"></span>
+					<span data-bind="i18n: {'key':  '%MODULENAME%/ACTION_REMOVE_PUBLIC_LINK_IN_PROGRESS'}, visible: isRemovingPublicLink()"></span>
+				</span>
+				<span class="button secondary_button" data-bind="i18n: {'key': 'COREWEBCLIENT/ACTION_CLOSE'}, click: cancelPopup"></span>
+			</div>
+		</div>
+	</div>
+	<span class="helper"></span>
+</div>

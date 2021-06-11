@@ -1,0 +1,124 @@
+{
+	"system": {
+	},
+	"modules": {
+		"Core": {
+			"SiteName": "Afterlogic Aurora Corporate",
+			"ProductName": "Afterlogic Aurora Corporate"
+		},
+		"CoreWebclient": {
+			"HeaderModulesOrder": ["mail", "contacts", "calendar", "files"],
+			"DefaultAnonymScreenHash": "login",
+			"DefaultUserScreenHash": "mail",
+			"AllowMobile": true,
+			"ThemeList": ["Default", "DeepForest", "Funny", "Sand"]
+		},
+		"SessionTimeoutWebclient": {
+			"Disabled": true
+		},
+		"DropboxAuthWebclient": {
+			"Scopes": "auth"
+		},
+		"Mail": {
+			"MessagesSortBy": {
+				"Allow": true,
+				"List": [],
+				"DefaultSortBy": "arrival",
+				"DefaultSortOrder": "desc"
+			},
+			"AllowDefaultAccountForUser": true,
+			"AutocreateMailAccountOnNewUserFirstLogin": true
+		},
+		"MailWebclient": {
+			"AllowSearchMessagesBySubject": true
+		},
+		"ChangePasswordWebclient": {
+			"Disabled": true
+		},
+		"FilesWebclient": {
+			"ShowCommonSettings": true,
+			"ShowFilesApps": false
+		},
+		"Calendar": {
+			"AllowTasks": true
+		},
+		"OAuthIntegratorWebclient": {
+			"AllowNewUsersRegister": false
+		},
+		"MailChangePasswordPoppassdPlugin": {
+			"Disabled": true
+		},
+		"MailChangePasswordPoppassdExtendedPlugin": {
+			"Disabled": true
+		},
+		"CpanelIntegrator": {
+			"Disabled": true
+		},
+		"MailSaveMessageAsPdfPlugin": {
+			"Disabled": true
+		},
+		"CoreParanoidEncryptionWebclientPlugin": {
+			"Disabled": true
+		},
+		"LicensingWebclient": {
+			"TrialKeyLink": "<a href=\"https://afterlogic.com/get-trial-key?productId=afterlogic-aurora-corporate-8\" target=\"_blank\">https://afterlogic.com/get-trial-key?productId=afterlogic-aurora-corporate-8</a>",
+			"PermanentKeyLink": "<a href=\"https://afterlogic.com/purchase/aurora\" target=\"_blank\">https://afterlogic.com/purchase/aurora</a>"
+		},
+		"StandardLoginFormWebclient": {
+			"UseDropdownLanguagesView": true,
+			"BottomInfoHtmlText": "Powered by <a href=\"https:\/\/afterlogic.com\/aurora\" target=\"_blank\">Afterlogic Aurora Corporate</a>"
+		},
+		"RecaptchaWebclientPlugin": {
+			"Disabled": true
+		},
+		"MailMasterPassword": {
+			"Disabled": true
+		},
+		"MailLoginFormWebclient": {
+			"Disabled": true,
+			"UseDropdownLanguagesView": true,
+			"BottomInfoHtmlText": "Powered by <a href=\"https:\/\/afterlogic.com\/aurora\" target=\"_blank\">Afterlogic Aurora Corporate</a>"
+		},
+		"MailLoginFormMobileWebclient": {
+			"Disabled": true
+		},
+		"ActiveServer": {
+			"Disabled": true
+		},
+		"TwoFactorAuth": {
+			"Disabled": true,
+			"FacetIds": [
+				"android:apk-key-hash:fbENTvCSeR-AwJV5rrrBsb98p-jEw0c5SSOMul_KwaI",
+				"android:apk-key-hash:ruyLw8eJtT5fZ1ZusXSCHTp0yMZIlr6CVx5kq76ApiQ",
+				"android:apk-key-hash:aEdaWviMajF83fPsXVc1yaZVUy1OiKakbZqP62f5D48"
+			]
+		},
+		"OutlookSyncWebclient": {
+			"PluginDownloadLink": "https://afterlogic.com/download/OutlookSyncSetup.exe",
+			"PluginReadMoreLink": "https://afterlogic.com/docs/aurora-corporate-8/configuring-webmail/outlook-sync"
+		},
+		"OverrideUserSettings": {
+			"Disabled": true
+		},
+		"Ios": {
+			"IncludePasswordInProfile": false
+		},
+		"Contacts": {
+			"ImportContactsLink": "https://afterlogic.com/docs/aurora-corporate-8/frequently-asked-questions/importing-contacts"
+		},
+		"S3Filestorage": {
+			"Disabled": true
+		},
+		"S3CorporateFilestorage": {
+			"Disabled": true
+		},
+		"OpenPgpFilesWebclient": {
+			"EnableSelfDestructingMessages": false,
+			"EnablePublicLinkLifetime": false
+		},
+		"MobileAppsWebclient": {
+			"ShowMailServerUrlApp": false,
+			"ShowFilesServerUrlApp": false
+		}
+	}
+}

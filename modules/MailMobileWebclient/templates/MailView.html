@@ -1,0 +1,72 @@
+<div class="screen MailLayout" style="display: none;">
+	<!-- Left panel with reveal effect-->
+	<div class="panel panel-left panel-reveal" data-bind="style: {'display': selectedPanel() === Enums.MobilePanel.Groups ? 'block' : ''}">
+		<!-- ko template: {name: oFolderList.ViewTemplate, data: oFolderList} --><!-- /ko -->
+	</div>
+	<!-- Views -->
+    <div class="views">
+		<!-- Your main view, should have "view-main" class -->
+		<div class="view webmail-view">
+			<!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
+			<div class="pages navbar-fixed">
+
+				<div class="page message-list" data-bind="css: {'unified_messages_panel': isUnifiedFolderCurrent}">
+					<div class="navbar">
+						<div class="navbar-inner">
+							<div class="left">
+								<a href="javascript:void(0)" class="link icon-only open-panel" data-bind="click: togleFolderList, visible: !isEnableGroupOperations()"><i class="icon icon-bars"></i></a>
+
+								<a href="javascript:void(0)" class="link icon-only" data-bind="click: function () { oMessageList.checkAll(false); }, visible: isEnableGroupOperations()"><i class="icon icon-close"></i></a>
+							</div>
+
+							<!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
+							<div class="center sliding" data-bind="visible: oMessageList.checkedUids().length === 0, i18n: {'key': '%MODULENAME%/HEADING_BROWSER_TAB'}"></div>
+							<div class="center sliding" data-bind="visible: oMessageList.checkedUids().length > 0, text: oMessageList.checkedUids().length"></div>
+
+							<div class="right" data-bind="visible: oMessageList.checkedUids().length === 0">
+								<a href="javascript:void(0)" class="link icon-only aurora-icons check-state" data-bind="command: checkMailCommand, checkstate: {'activeClass': 'rotate', 'state': checkMailIndicator(), 'duration': 800}"><i class="icon"></i></a>
+								<!--i18n: {'key': '%MODULENAME%/ACTION_CHECK_MAIL'}-->
+								
+								<a href="javascript:void(0)" class="link icon-only open-panel aurora-icons settings" data-bind="click: function () { showApps(!showApps()); }"><i class="icon"></i></a>
+							</div>
+
+							<div class="right" data-bind="visible: oMessageList.checkedUids().length > 0">
+								<!-- ko template: { name: '%ModuleName%_MessagesToolbarView' } --><!-- /ko -->
+							</div>
+						</div>
+					</div>
+					
+					<div class="toolbar toolbar-bottom" data-bind="visible: oMessageList.oPageSwitcher.pages().length > 0, with: oMessageList.oPageSwitcher">
+						<div class="toolbar-inner" data-bind="template: {name: ViewTemplate}"></div>
+					</div>
+					
+					<!-- ko template: { name: oMessageList.ViewTemplate, data: oMessageList} --><!-- /ko -->
+					
+					<div class="speed-dial">
+						<!-- FAB inside will open Speed Dial actions -->
+						<a href="javascript: void(0)" class="floating-button aurora-icons new_message external" data-bind="click: executeCompose">
+							<i class="icon"></i>
+						</a>
+					</div>
+				</div>
+				
+				<div class="page message-viewer" data-bind="visible: selectedPanel() === Enums.MobilePanel.View">
+					<div class="navbar">
+						<div class="navbar-inner">
+							<!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
+							<div class="left">
+								<a href="javascript:void(0)" class="link back" data-bind="click: gotoMessageList, visible: selectedPanel() === Enums.MobilePanel.View"><i class="icon icon-back"></i></a>
+							</div>
+
+							<div class="right" data-bind="visible: selectedPanel() === Enums.MobilePanel.View">
+								<!-- ko template: {name: '%ModuleName%_MessageToolbarView', data: messagePane} --><!-- /ko -->
+							</div>
+						</div>
+					</div>
+					
+					<div class="page-content" data-bind="template: {name: messagePane().ViewTemplate, data: messagePane}"></div>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>

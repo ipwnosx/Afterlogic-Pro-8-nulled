@@ -1,0 +1,89 @@
+<div class="screen TasksLayout" style="display: none;">
+	<div class="panels" data-bind="splitterFlex: {name: 'tasks_list', sizes: [20, 80]}">
+		<div class="panel left_panel calendars_panel" data-splitter="tasks_list">
+			<div class="panel_content">
+				<div class="buttons big_single_button">
+					<span class="button"  data-bind="click: createTaskInCurrentCalendar"> 
+						<span data-bind="i18n: {'key': '%MODULENAME%/ACTION_CREATE_TASK'}"></span> 
+					</span>
+				</div>
+				<div class="middle_bar">
+					<div class="panel_center">
+						<div class="scroll-inner">				
+							<div class="items_list calendars">
+		<!-- ko foreach: calendars.own() -->
+				<!-- ko template: {name: 'CalendarWebclient_CalendarItemView'} --><!-- /ko -->
+			<!-- /ko -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="panel">
+			<div class="panel_content">
+				<div class="middle_bar">
+					<div class="panel_top">
+						<span class="search_block" style="width: 95%;">
+							<span class="input" data-bind="css: {'focus': isSearchFocused}">
+								<span class="icon search" data-bind="i18n: {'key': 'COREWEBCLIENT/ACTION_SEARCH'}"></span>
+								<input class="field" spellcheck="false" type="text" data-bind="hasfocus: isSearchFocused, value: searchInput, onEnter: searchSubmit, valueUpdate: 'afterkeydown'" />
+							</span>
+						</span>					
+						<span class="toolbar" style="display: inline-block; vertical-align: middle;">
+							<span class="content" style="padding: 0;">
+								<span class="item checkstate command" data-bind="click: getCalendars, checkstate: {'activeClass': 'process', 'state': preLoadingList(), 'duration': 800}">
+									<span class="icon"></span>
+								</span>			
+							</span>			
+						</span>
+					</div>
+					<div class="panel_center unselectable" data-bind="customScrollbar: {x: false}">
+						<div class="sales_list_scroll scroll-inner">
+							<div class="items_list sales_list">
+								<span class="list_notification" data-bind="visible: true">
+									<span class="link" data-bind="text: actionCompletedText(), click: onShowCompletedClick"></span>
+								</span>
+								<div data-bind="visible: isEmptyList() && !loadingList()">
+									<span class="list_notification" data-bind="visible: searchText() === ''">
+										<span class="description" data-bind="i18n: {'key': '%MODULENAME%/INFO_NO_TASKS'}"></span>
+										<span class="description" data-bind="i18n: {'key': '%MODULENAME%/INFO_CREATE'}"></span>
+									</span>
+									<span class="list_notification" data-bind="visible: searchText() !== ''">
+										<span class="link" data-bind="i18n: {'key': 'COREWEBCLIENT/ACTION_CLEAR_SEARCH'}, click: onClearSearchClick"></span>
+										<span class="description" data-bind="i18n: {'key': '%MODULENAME%/INFO_NO_TASKS_FOUND'}"></span>
+									</span>
+								</div>								
+								<span class="list_notification" data-bind="visible: loadingList()" id="selenium_contacts_loading_info">
+									<span class="description" data-bind="i18n: {'key': '%MODULENAME%/INFO_LOADING_LIST'}"></span>
+								</span>
+								<span class="list_notification" data-bind="visible: searchText() !== '' && !isEmptyList()">
+									<span class="link" data-bind="i18n: {'key': 'COREWEBCLIENT/ACTION_CLEAR_SEARCH'}, click: onClearSearchClick"></span>
+									<span class="description" data-bind="text: searchText"></span>
+								</span>
+								<div class="items_sub_list sales_sub_list" data-bind="foreach: tasksList, visible : !loadingList()">
+									<div class="item" data-bind="css: {'selected': selected}, visible: visible">
+										<div class="item_content">
+											<span class="data table fadeout" >
+												<label class="custom_checkbox round" data-bind="css: {'checked': checked}, style: {'padding': '5px', 'background': color}"> 
+													<span class="icon"></span> 
+													<input type="checkbox" data-bind="checked: checked"> 
+												</label>
+												<span data-bind="css: {'withDate': withDate}">
+													<div data-bind="text: subject, style: {'text-decoration': checked() ? 'line-through' : 'none'}"></div>
+													<div data-bind="text: visibleDate, style: {'font-size': '10pt', 'color': '#4477bb'}"></div>
+												</span>
+											</span>
+											<div class="separator"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel_bottom unselectable" data-bind="visible: oPageSwitcher.pages().length > 0 && !loadingList(), template: {name: oPageSwitcher.ViewTemplate, data: oPageSwitcher}"></div>
+			</div>
+		</div>
+	</div>
+</div>

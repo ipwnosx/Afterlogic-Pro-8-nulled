@@ -1,0 +1,19 @@
+<div class="item folder2" data-bind="
+		draggablePlace: !$parent.bInPopup ? $parent.dragAndDropHelperBound : null,
+		draggableDragStartCallback: function() {if (!$parent.bInPopup) $root.dragover(true);},
+		draggableDragStopCallback: function() {if (!$parent.bInPopup) $root.dragover(false);},
+		css: {'selected': selected, 'checked': checked, 'deleted': deleted, 'published': published}"
+>
+	<div class="item_content ui-droppable dragHandle" data-bind="css: {'recivedAnim': recivedAnim()}, droppable: {valueFunc: function (oEvent, oUi) {$root.filesDrop($data, oEvent, oUi);}}">
+		<span class="icon"></span>
+
+		<span class="name fadeout" data-bind="text: fileName()"></span>
+		<div class="icons-container">
+			<span class="published_icon" data-bind="click: function (oItem) { $root.onShareIconClick(oItem); }"></span>
+			<!-- ko if: (isShared()) -->
+			<span class="shared-image-table"></span>
+			<!-- /ko -->
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>

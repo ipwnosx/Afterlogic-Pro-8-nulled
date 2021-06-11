@@ -1,0 +1,10 @@
+<div class="items_sub_list files-list" data-bind="draggablePlace: dragAndDropHelper">
+	<!-- ko foreach: folders -->
+		<!-- ko template: {name: '%ModuleName%_FolderView'} --><!-- /ko -->
+	<!-- /ko -->
+	<!-- ko foreach: filesCollection -->
+		<!-- ko template: {name: '%ModuleName%_FileView'} --><!-- /ko -->
+	<!-- /ko -->
+	<div class="item helper"></div>
+</div>
+

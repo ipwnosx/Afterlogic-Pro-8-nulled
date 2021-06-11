@@ -1,0 +1,18 @@
+{
+    "Disabled": [
+        true,
+        "bool"
+    ],
+    "EnableForNewUsers": [
+        false,
+        "bool"
+    ],
+    "Server": [
+        "",
+        "string"
+    ],
+    "LinkToManual": [
+        "",
+        "string"
+    ]
+}

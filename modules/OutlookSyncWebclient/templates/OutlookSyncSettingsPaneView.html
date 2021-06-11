@@ -1,0 +1,33 @@
+<div class="panel_top">
+	<h2 class="settings_heading" data-bind="i18n: {'key': '%MODULENAME%/HEADING_SETTINGS_TAB'}"></h2>
+</div>
+
+<div class="panel_center">
+	<div class="fields">
+		
+		<!-- ko template: {name: oCreateLoginPasswordView.ViewTemplate, data: oCreateLoginPasswordView} --><!-- /ko -->
+		
+		<div class="fieldset">
+			<div class="hint" data-bind="i18n: {'key': '%MODULENAME%/INFO_SYNC_PLUGIN'}"></div>
+			<div class="row">
+				<span class="label" data-bind="i18n: {'key': '%MODULENAME%/LABEL_DAV_SERVER'}"></span>
+				<span class="value" data-bind="text: server"></span>
+			</div>
+			<div class="hint" data-bind="html: credentialsHintText"></div>
+			<div class="hint" data-bind="i18n: {'key': 'COREWEBCLIENT/INFO_DEMO_MOBILE_CREDENTIALS_HTML', 'type': 'html'}, visible: bDemo"></div>
+
+			<br />
+			<br />
+
+			<div class="hint" data-bind="visible: sPluginDownloadLink">
+				<span data-bind="i18n: {'key': '%MODULENAME%/INFO_PLUGIN_SUPPORTS'}"></span>
+				<a class="link" href="#" target="_blank" data-bind="i18n: {'key': '%MODULENAME%/ACTION_DOWNLOAD_PLUGIN'}, attr: {href: sPluginDownloadLink}"></a>
+			</div>
+			<br />
+			<div class="hint" data-bind="visible: sPluginReadMoreLink">
+				<span data-bind="i18n: {'key': '%MODULENAME%/INFO_PLUGIN_VERSION'}"></span>
+				<a class="link" href="#" target="_blank" data-bind="i18n: {'key': '%MODULENAME%/ACTION_READ_MORE_PLUGIN'}, attr: {href: sPluginReadMoreLink}"></a>
+			</div>
+		</div>
+	</div>
+</div>

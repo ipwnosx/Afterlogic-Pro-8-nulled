@@ -1,0 +1,22 @@
+{
+	"Disabled": [
+		false,
+		"bool"
+	],
+	"LoginLogo": [
+		"",
+		"string"
+	],
+	"TabsbarLogo": [
+		"",
+		"string"
+    ],
+	"TopIframeUrl": [
+        "",
+        "string"
+	],
+	"TopIframeHeightPx": [
+        0,
+        "int"
+	]
+}

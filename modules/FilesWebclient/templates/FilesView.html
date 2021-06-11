@@ -1,0 +1,50 @@
+<div class="screen FileStorageLayout no-public" style="display: none;">
+	<div class="panels" data-bind="splitterFlex: {name: 'files_list', sizes: [20, 80]}">
+		<div class="panel left_panel storages_panel">
+			<div class="panel_content">
+				<span class="buttons big_single_button" data-bind="dropdown: { close: isNewItemsMenuOpened }, css: { 'disabled': newItemsDisabled }">
+					<span class="control button">
+						<span data-bind="i18n: {'key': '%MODULENAME%/ACTION_NEW_ITEMS'}"></span>
+						<span class="icon arrow"></span>
+						<span class="dropdown">
+							<span class="dropdown_helper">
+								<span class="dropdown_content">
+									<div class="item" data-bind="css: newItemsDisabled() ? 'disabled' : '',
+											initDom: uploaderButton, click: function () { return !newItemsDisabled(); },
+											i18n: {'key': '%MODULENAME%/ACTION_UPLOAD_FILES'}"></div>
+									<div class="item" data-bind="command: createFolderCommand,
+											i18n: {'key': '%MODULENAME%/ACTION_NEW_FOLDER'}"></div>
+									<div class="item" data-bind="command: createShortcutCommand,
+											i18n: {'key': '%MODULENAME%/ACTION_CREATE_SHORTCUT'}"></div>
+									<!-- ko foreach: createButtonsControllers -->
+										<!-- ko template: {name: $data.ViewTemplate, data: $data} --><!-- /ko -->
+									<!-- /ko -->
+								</span>
+							</span>
+						</span>
+					</span>
+				</span>
+
+				<div class="middle_bar" data-bind="css: {'quota_visible': -1 < quotaProc()}">
+					<!-- ko template: { name: '%ModuleName%_StoragesPanelView'} --><!-- /ko -->
+					<div class="panel_bottom" data-bind="style: { minHeight: (24 + 16 * aBottomLeftCornerLinks.length) + 'px' }">
+						<div data-bind="foreach: aBottomLeftCornerLinks" style="font-size: 8pt; line-height: 16px; text-align: center;">
+							<a target="_blank" data-bind="i18n: {'key': Lang}, attr: {href: Link}" style="display: block; outline: none;"></a>
+						</div>
+						<span class="volumer" data-bind="visible: -1 < quotaProc()">
+							<span class="volumer_conteiner" data-bind="customTooltip: quotaDesc()">
+								<span class="used" data-bind="style: {'width': '' + (-1 < quotaProc() ? quotaProc() : 0) + '%' }"></span>
+							</span>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="panel center_panel files">
+			<div class="panel_content">
+				<div class="toolbar" data-bind="template: { name: '%ModuleName%_ToolbarView'}"></div>
+				<div class="middle_bar" data-bind="template: {name: '%ModuleName%_FilesPanelView'}"></div>
+			</div>
+		</div>
+	</div>
+</div>

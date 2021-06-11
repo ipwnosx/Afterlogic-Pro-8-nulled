@@ -1,0 +1,52 @@
+.MailLayout {
+	.message_list {
+		.item {
+			&.threaded {
+				border-left: 4px solid #686868;
+				background: #fafafa;
+				padding-left: 30px;
+			}
+
+			&.unseen {
+				font-weight: 600;
+			}
+
+			.item-title-row {
+				.flag {
+					.icon::before {
+						content: "\e613";
+						font-size: 22px;
+						width: 22px;
+						height: 22px;
+						vertical-align: baseline;
+					}
+					&.flagged {
+						.icon::before {
+							color: #ffb736;
+							content: "\e61f";
+						}
+					}
+					&.partial {
+						.icon::before {
+							color: #ffb736;
+						}
+					}
+				}
+			}
+			
+			.has_attachments {
+				.init-icon-font();
+				
+				float: right;
+				margin-top: -27px;
+				
+				&:before {
+					.opacity(0.7);
+					
+					content: "\e622";
+					font-size: 20px;
+				}
+			}
+		}
+	}
+}

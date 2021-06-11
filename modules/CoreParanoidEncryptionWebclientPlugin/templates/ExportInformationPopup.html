@@ -1,0 +1,16 @@
+<div class="popup" style="display: none;">
+	<div class="mask" data-bind="click: cancelPopup"></div>
+	<div class="popup_panel">
+		<span class="close" data-bind="click: cancelPopup"></span>
+		<div class="fields">
+			<div class="hint" data-bind="i18n: {'key': '%MODULENAME%/HINT_ABOUT_KEY_EXPORT_POPUP'}"></div>
+			<div class="buttons">
+				<span data-bind="click: fExportKeyCallback" class="button">
+					<span data-bind="i18n: {'key': '%MODULENAME%/ACTION_EXPORT_KEY'}"></span>
+				</span>
+				<span class="button secondary_button" data-bind="i18n: {'key': 'COREWEBCLIENT/ACTION_CLOSE'}, click: cancelPopup"></span>
+			</div>
+		</div>
+	</div>
+	<span class="helper"></span>
+</div>

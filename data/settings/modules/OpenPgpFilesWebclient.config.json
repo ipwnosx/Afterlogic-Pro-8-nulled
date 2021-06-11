@@ -1,0 +1,20 @@
+{
+    "Disabled": [
+        false,
+        "bool"
+    ],
+    "EnableSelfDestructingMessages": [
+        false,
+        "bool"
+    ],
+    "EnablePublicLinkLifetime": [
+        false,
+        "bool"
+    ],
+    "AvailableFor": [
+        [
+            "FilesWebclient"
+        ],
+        "array"
+    ]
+}

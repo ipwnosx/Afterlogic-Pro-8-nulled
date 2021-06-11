@@ -1,0 +1,46 @@
+<div class="panel_top">
+	<h2 class="settings_heading" data-bind="i18n: {'key': '%MODULENAME%/HEADING_SETTINGS_TAB'}"></h2>
+</div>
+
+<div class="panel_center">
+	<div class="fields">
+		<div class="fieldset" data-bind="visible: bShowMailSection">
+			<h2 data-bind="text: sMailSectionName"></h2>
+			<div class="hint" data-bind="i18n: {'key': '%MODULENAME%/SERVICES_FILES_ALL_APPSYNC_HINT_SPECIFY'}, visible: bShowMailServerUrlApp"></div>
+			<div class="fieldgroup" data-bind="visible: bShowMailServerUrlApp">
+				<div class="row">
+					<span class="label" data-bind="i18n: {'key': '%MODULENAME%/SERVICES_FILES_APPSYNC_SERVER'}"></span>
+					<span class="value" data-bind="text: sAppPath"></span>
+				</div>
+			</div>
+			<div class="hint" data-bind="i18n: {'key': '%MODULENAME%/SERVICES_FILES_APPSYNC_HINT_CREDENTIALS'}"></div>
+			<a data-bind="visible: bShowMailIosApp, attr: { 'href': sMailIosApp }" target="_blank">
+				<img src="static/styles/images/modules/FilesWebclient/appstore.png" style="width: 197px;">
+			</a>
+			<a data-bind="visible: bShowMailAndroidApp, attr: { 'href': sMailAndroidApp }" target="_blank">
+				<img src="static/styles/images/modules/FilesWebclient/playmarket.png" style="width: 197px;">
+			</a>
+		</div>
+		<div class="fieldset" data-bind="visible: bShowFilesSection">
+			<h2 data-bind="text: sFilesSectionName"></h2>
+			<div class="hint" data-bind="i18n: {'key': '%MODULENAME%/SERVICES_FILES_ALL_APPSYNC_HINT_SPECIFY'}, visible: bShowFilesServerUrlApp"></div>
+			<div class="fieldgroup" data-bind="visible: bShowFilesServerUrlApp">
+				<div class="row">
+					<span class="label" data-bind="i18n: {'key': '%MODULENAME%/SERVICES_FILES_APPSYNC_SERVER'}"></span>
+					<span class="value" data-bind="text: sAppPath"></span>
+				</div>
+			</div>
+			<div class="hint" data-bind="i18n: {'key': '%MODULENAME%/SERVICES_FILES_APPSYNC_HINT_CREDENTIALS'}"></div>
+			<a data-bind="visible: bShowFilesWinApp, attr: { 'href': sFilesWinAppLink }" target="_blank">
+				<img src="static/styles/images/modules/FilesWebclient/desktop-client.png" style="width: 197px;">
+			</a>
+			<a data-bind="visible: bShowFilesIosApp, attr: { 'href': sFilesIosAppLink }" target="_blank">
+				<img src="static/styles/images/modules/FilesWebclient/appstore.png" style="width: 197px;">
+			</a>
+			<a data-bind="visible: bShowFilesAndroidApp, attr: { 'href': sFilesAndroidAppLink }" target="_blank">
+				<img src="static/styles/images/modules/FilesWebclient/playmarket.png" style="width: 197px;">
+			</a>
+		</div>
+		<div class="fieldset" data-bind="visible: !bShowMailSection && !bShowFilesSection, i18n: {'key': '%MODULENAME%/INFO_NO_APPS'}"></div>
+	</div>
+</div>

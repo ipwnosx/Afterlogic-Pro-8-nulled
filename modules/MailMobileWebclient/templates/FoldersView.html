@@ -1,0 +1,40 @@
+<div class="content-block" data-bind="css: {'quota_visible': -1 < quotaProc()}, click: $parent.gotoMessageList.bind($parent)">
+	<div class="content-block-title" data-bind="i18n: {'key': '%MODULENAME%/HEADING_ACCOUNTS'}"></div>
+	<div class="list-block">
+		<ul data-bind="visible: accounts().length > 1, foreach: accounts">
+			<li class="item" data-bind="css: {'selected': isCurrent()}, click: function(oThisAcc, oEvent) { changeAccount(); oEvent.stopPropagation(); }">
+				<label class="label-radio item-content">
+					<input type="checkbox" name="account-radio" data-bind="checked: isCurrent">
+					<div class="item-media">
+						<i class="icon icon-form-radio"></i>
+					</div>
+					<div class="item-inner">
+						<div class="item-title" data-bind="text: email"></div>
+					</div>
+				</label>
+			</li>
+		</ul>
+		<ul data-bind="visible: accounts().length === 1, foreach: accounts">
+			<li class="item" data-bind="css: {'selected': isCurrent()}">
+				<div class="item-content">
+					<div class="item-inner">
+						<div class="item-title" data-bind="text: email"></div>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div class="content-block-title" data-bind="i18n: {'key': '%MODULENAME%/HEADING_UNIFIED_FOLDERS'}, visible: unifiedInboxAllowed"></div>
+	<div class="list-block" data-bind="visible: unifiedInboxAllowed">
+		<ul data-bind="template: {name: '%ModuleName%_FolderView', data: oUnifiedInbox}"></ul>
+	</div>
+	<div class="content-block-title" data-bind="i18n: {'key': '%MODULENAME%/HEADING_FOLDERS'}"></div>
+	<div class="list-block">
+		<ul data-bind="template: {name: '%ModuleName%_FolderView', foreach: folderList().collection}"></ul>
+	</div>
+	<span class="volumer" data-bind="visible: -1 < quotaProc(), click: $parent.onVolumerClick">
+		<span class="volumer_conteiner">
+			<span class="used" data-bind="style: {'width': '' + (-1 < quotaProc() ? quotaProc() : 0) + '%' }"></span>
+		</span>
+	</span>
+</div>

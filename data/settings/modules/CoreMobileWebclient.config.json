@@ -1,0 +1,30 @@
+{
+    "Disabled": [
+        false,
+        "bool"
+    ],
+    "Theme": [
+        "Default",
+        "string"
+    ],
+    "ThemeList": [
+        [
+            "Default"
+        ],
+        "array"
+    ],
+    "IncludeInMobile": [
+        true,
+        "bool"
+    ],
+    "IncludeInDesktop": [
+        false,
+        "bool"
+    ],
+    "RequireInMobile": [
+        [
+            "CoreWebclient"
+        ],
+        "array"
+    ]
+}

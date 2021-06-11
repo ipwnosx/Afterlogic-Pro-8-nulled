@@ -1,0 +1,38 @@
+{
+    "Disabled": [
+		false,
+		"bool"
+	],
+	"EditFileNameWithoutExtension": [
+		false,
+		"bool"
+	],
+	"ShowCommonSettings": [
+		false,
+		"bool"
+	],
+    "ServerUrlRewriteBase": [
+		false,
+		"bool"
+	],
+    "ServerUseUrlRewrite": [
+		false,
+		"bool"
+	],
+	"ShowFilesApps": [
+		true,
+		"bool"
+	],
+	"BottomLeftCornerLinks": [
+		[],
+		"array"
+	],
+    "AvailableFor": [
+		["MailWebclient"],
+		"array"
+	],
+	"PublicLinksEnabled": [
+		true,
+		"bool"
+	]
+}

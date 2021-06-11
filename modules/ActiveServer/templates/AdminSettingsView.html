@@ -1,0 +1,73 @@
+<div class="middle_bar">
+	<div class="panel_top">
+		<h2 class="settings_heading" data-bind="i18n: {'key': '%MODULENAME%/HEADING_SETTINGS_TAB'}"></h2>
+	</div>
+	<div class="panel_center">
+		<div class="fields">
+			<div class="fieldset">
+				<div class="row">
+					<span class="value" style="float: left;">
+						<label class="custom_checkbox" data-bind="css: {'checked': enableForNewUsers}">
+							<span class="icon"></span>
+							<input type="checkbox" id="enableForNewUsers" data-bind="checked: enableForNewUsers" />
+						</label>
+						<label for="enableForNewUsers" data-bind="i18n: {'key': '%MODULENAME%/ENABLE_FOR_NEW_USERS'}"></label>
+					</span>
+				</div>
+				<div class="hint row">
+					<span class="value" data-bind="i18n: {'key': '%MODULENAME%/HINT_FOR_NEW_USERS', 'type': 'html'}"></span>
+				</div>				
+				<div class="row">
+					<span class="label" data-bind="i18n: {'key': '%MODULENAME%/LABEL_LICENSING_MAX_NUMBER_OF_USERS'}"></span>
+					<span class="value">
+						<b data-bind="text: usersNumberLicensed"></b>
+					</span>
+				</div>
+				<div class="row">
+					<span class="label" data-bind="i18n: {'key': '%MODULENAME%/LABEL_LICENSING_USERS_ALLOCATED'}"></span>
+					<span class="value">
+						<b data-bind="text: usersNumber"></b>
+					</span>
+				</div>
+				<div class="row">
+					<span class="label" data-bind="i18n: {'key': '%MODULENAME%/LABEL_LICENSING_FREE_SLOTS'}"></span>
+					<span class="value">
+						<b data-bind="text: usersFreeSlots"></b>
+					</span>
+				</div>
+				<div class="row">
+					<span class="label" data-bind="i18n: {'key': '%MODULENAME%/LABEL_LICENSING_TYPE'}"></span>
+					<span class="value">
+						<b data-bind="text: licenseType"></b>
+					</span>
+				</div>
+				<div class="row">
+					<span class="label" data-bind="i18n: {'key': '%MODULENAME%/LABEL_SERVER_HOST'}"></span>
+					<span class="value">
+						<input class="input" type="text" data-bind="value: server, valueUpdate: 'afterkeydown', onEnter: save">
+					</span>
+				</div>
+				<div class="hint row">
+					<span class="value" data-bind="i18n: {'key': '%MODULENAME%/HINT_SERVER_HOST'}"></span>
+				</div>				
+				<div class="row">
+					<span class="label" data-bind="i18n: {'key': '%MODULENAME%/LABEL_LINK_TO_MANUAL'}"></span>
+					<span class="value">
+						<input class="input" type="text" data-bind="value: linkToManual, valueUpdate: 'afterkeydown', onEnter: save">
+					</span>
+				</div>
+				<div class="hint row">
+					<span class="value" data-bind="i18n: {'key': '%MODULENAME%/HINT_LINK_TO_MANUAL'}"></span>
+				</div>				
+			</div>
+			<div class="buttons">
+				<span class="button" data-bind="click: save, visible: !isSaving()">
+					<span data-bind="i18n: {'key': 'COREWEBCLIENT/ACTION_SAVE'}"></span>
+				</span>
+				<span class="button" data-bind="visible: isSaving()">
+					<span data-bind="i18n: {'key': 'COREWEBCLIENT/ACTION_SAVE_IN_PROGRESS'}"></span>
+				</span>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,62 @@
+{
+	"Disabled": [
+		false,
+		"bool"
+	],
+	"FilesSectionName": [
+		"Aurora Files",
+		"string"
+	],
+	"ShowFilesAndroidApp": [
+		true,
+		"bool"
+	],
+	"ShowFilesServerUrlApp": [
+		true,
+		"bool"
+	],
+	"FilesAndroidAppLink": [
+		"https:\/\/play.google.com\/store\/apps\/details?id=com.afterlogic.aurora.files",
+		"string"
+	],
+	"ShowFilesIosApp": [
+		true,
+		"bool"
+	],
+	"FilesIosAppLink": [
+		"https:\/\/apps.apple.com\/us\/app\/aurorafiles\/id1030108751",
+		"string"
+	],
+	"ShowFilesWinApp": [
+		true,
+		"bool"
+	],
+	"FilesWinAppLink": [
+		"https:\/\/afterlogic.com\/download\/AuroraFileSync.msi",
+		"string"
+	],
+	"MailSectionName": [
+		"Aurora Mail",
+		"string"
+	],
+	"ShowMailServerUrlApp": [
+		true,
+		"bool"
+	],
+	"ShowMailAndroidApp": [
+		true,
+		"bool"
+	],
+	"MailAndroidAppLink": [
+		"https:\/\/play.google.com\/store\/apps\/details?id=com.afterlogic.aurora.mail",
+		"string"
+	],
+	"ShowMailIosApp": [
+		true,
+		"bool"
+	],
+	"MailIosAppLink": [
+		"https:\/\/apps.apple.com\/us\/app\/aurora-mail\/id1494290317",
+		"string"
+	]
+}

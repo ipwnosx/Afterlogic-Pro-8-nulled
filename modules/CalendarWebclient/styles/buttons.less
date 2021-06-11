@@ -1,0 +1,46 @@
+.popup.calendar_popup {
+	.buttons {
+		border-top: 1px solid #e2e2e2;
+		margin: 16px 0px 0px;
+		padding-top: 20px;
+
+		&.without_border_top {
+			border-top: 0;
+		}
+		
+		.button {
+			float: left;
+			margin-right: 6px;
+			
+			html.rtl & {
+				float: right;
+				margin-left: 6px;
+				margin-right: 0px;
+			}
+		}
+		
+		.colors {
+			display: inline-block;
+			margin-top: 4px;
+			
+			.item {
+				display: inline-block;
+			}
+		}
+	}
+}
+
+.popup.calendar_select,
+.popup.calendar_event {
+	.buttons {
+		text-align: left;
+
+		html.rtl & {
+			text-align: right;
+		}
+
+		.button {
+			float: none;
+		}
+	}
+}

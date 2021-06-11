@@ -1,0 +1,126 @@
+<div class="screen MailLayout compose-screen" style="display: none;">
+	<div class="views">
+		<div class="view">
+			<div class="pages navbar-fixed">
+				<div class="page message-list">
+					<div class="navbar">
+						<div class="navbar-inner" style="overflow: inherit;">
+							<div class="left">
+								<a href="javascript:void(0)" class="link icon-only back" data-bind="click: function () { $root.backToListCommand(); }">
+									<i class="icon icon-back"></i>
+									<!--_i18n: {'key': 'COREWEBCLIENT/ACTION_CANCEL'}-->
+								</a>
+							</div>
+
+							<!--<div class="center sliding" data-bind="i18n: {'key': '%MODULENAME%/HEADING_COMPOSE_BROWSER_TAB'}"></div>-->
+
+							<div class="right" data-bind="foreach: toolbarFirstMobileControllers">
+								<!-- ko template: { name: $data.ViewTemplate, data: $data} --><!-- /ko -->
+							</div>
+							<div class="right" data-bind="visible: toolbarNextMobileControllers().length > 0">
+								<a href="javascript:void(0)" class="link icon-only aurora-icons more" data-bind="click: function () { showMore(!showMore()); }">
+									<i class="icon"></i>
+									<div data-bind="visible: showMore, foreach: toolbarNextMobileControllers" class="compose-more-menu">
+										<!-- ko template: { name: $data.ViewTemplate, data: $data} --><!-- /ko -->
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+					
+					<!--<div class="notice" data-bind="visible: bDemo, i18n: {'key': '%MODULENAME%/INFO_SEND_EMAIL_TO_DEMO_ONLY'}"></div>-->
+					<div class="page-content">
+						<div class="list-block">
+							<ul>
+								<li data-bind="visible: visibleFrom() && !headersCompressed()">
+									<div class="item-content">
+										<div class="item-inner">
+											<div class="item-title label" data-bind="i18n: {'key': '%MODULENAME%/LABEL_FROM'}"></div>
+											<div class="item-input">
+												<select class="input" tabindex="1" data-bind="foreach: senderList, value: selectedSender">
+													<option data-bind="text: fullEmail, value: id"></option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="item-content">
+										<div class="item-inner">
+											<div class="item-title label" data-bind="i18n: {'key': '%MODULENAME%/LABEL_TO'}"></div>
+											<div class="item-input">
+												<div class="input inputosaurus">
+													<div class="disable_mask" data-bind="visible: disableHeadersEdit"></div>
+													<div data-bind="customScrollbar: {x: false}">
+														<div class="scroll-inner">
+															<input type="text" spellcheck="false" tabindex="2" data-bind="initDom: toAddrDom" />
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li data-bind="visible: visibleCc() && !headersCompressed()">
+									<div class="item-content">
+										<div class="item-inner">
+											<div class="item-title label" data-bind="i18n: {'key': 'COREWEBCLIENT/LABEL_CC'}"></div>
+											<div class="item-input">
+												<div class="input inputosaurus">
+													<div class="disable_mask" data-bind="visible: disableHeadersEdit"></div>
+													<div data-bind="customScrollbar: {x: false}">
+														<div class="scroll-inner">
+															<input type="text" spellcheck="false" tabindex="3" data-bind="initDom: ccAddrDom" />
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li data-bind="visible: visibleBcc() && !headersCompressed()">
+									<div class="item-content">
+										<div class="item-inner">
+											<div class="item-title label" data-bind="i18n: {'key': 'COREWEBCLIENT/LABEL_BCC'}"></div>
+											<div class="item-input">
+												<div class="input inputosaurus">
+													<div class="disable_mask" data-bind="visible: disableHeadersEdit"></div>
+													<div data-bind="customScrollbar: {x: false}">
+														<div class="scroll-inner">
+															<input type="text" spellcheck="false" tabindex="4" data-bind="initDom: bccAddrDom" />
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li data-bind="visible: !headersCompressed()">
+									<div class="item-content">
+										<div class="item-inner">
+											<div class="item-title label" data-bind="i18n: {'key': '%MODULENAME%/LABEL_SUBJECT'}"></div>
+											<div class="item-input">
+												<input type="text" class="input" maxlength="1000" tabindex="5" id="selenium_compose_subject"
+													data-bind="value: subject, hasfocus: subjectFocused, valueUpdate: 'afterkeydown'"/>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<!-- ko template: {name: '%ModuleName%_ComposeCcBccSwitchersView'} --><!-- /ko -->
+						</div>
+						<div class="list-block">
+							<!-- ko template: { name: '%ModuleName%_ComposeAttachmentsView'} --><!-- /ko -->
+						</div>
+						<div class="content-block-title" data-bind="i18n: { 'key': '%MODULENAME%/LABEL_MESSAGE'}"></div>
+						<div class="content-block editor-container">
+							<div class="content-block-inner">
+								<!-- ko template: { name: oHtmlEditor.ViewTemplate, data: oHtmlEditor} --><!-- /ko -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

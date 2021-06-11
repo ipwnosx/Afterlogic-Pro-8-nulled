@@ -1,0 +1,280 @@
+.TasksLayout {
+	.search_block {
+		height: auto;
+	}
+	.custom_checkbox.round {
+		padding: 3px;
+		width: 25px;
+		height: 25px;
+		border-radius: 50%;
+		
+        .icon {
+            width: 25px !important;
+            height: 25px !important;
+            border-radius: 50%;
+            margin-left: -1px;
+            margin-top: -1px;            
+
+            &:before {
+                margin-top: 7px;
+                font-size: 13pt;
+            }
+        }
+	}
+    
+    .data.table > span {
+        margin-top: 9px;
+		font-size: 12pt;
+    }
+    .items_list .item .data.table .withDate {
+        margin-top: 2px;
+    }
+    
+    .additional_buttons .item.task {
+        display: none;
+    }
+
+    .panel.calendars_panel {
+		width: 20%;
+
+		.middle_bar {
+			position: relative;
+		}
+
+		.dropdowns {	
+			.box-sizing;
+
+			color: #ffffff;
+			padding-right: 50px;
+			position: absolute;
+			width: 100%;
+
+			html.rtl & {
+				padding-left: 50px;
+				padding-right: 0px;
+			}
+
+			.separator {
+				background: #000;
+				display: block;
+				height: 1px;
+				margin: 8px 17px;
+				opacity: 0.1;
+			}
+
+			.dropdown {
+				z-index: 99;
+
+				.dropdown_helper {
+					min-width: inherit;
+					top: ~"0\0/";//IE8
+				}
+
+				.dropdown_content {
+					border: 0px;
+					border-radius: 0px 0px 4px 0px;
+
+					html.rtl & {
+						border-radius: 0px 0px 0px 4px;
+					}
+				}
+
+				.dropdown_arrow {
+					display: none;
+				}
+
+				.item {
+					color: #ffffff;
+
+					&:hover {
+						.transparent-background-color(#000000, 0.1);
+					}
+				}
+			}
+
+			.colors {
+				display: block;
+				font-size: 0;
+				line-height: 100%;
+				padding: 8px 17px 16px;
+				white-space: normal;
+
+				.item {
+					border: 1px solid rgba(0, 0, 0, 0.2);
+					display: inline-block;
+					height: 13px;
+					margin: 0px 6px 6px 0px;
+					padding: 0px;
+					width: 13px;
+				}
+			}
+		}
+
+		.calendars {
+			height: auto;
+
+			.item {
+				color: #ffffff;
+				cursor: pointer;
+				margin-bottom: 4px;
+				max-height: 500px;
+				overflow: visible;
+				padding: 7px 17px 6px 16px;
+				position: relative;
+
+				.label-container {
+					padding-right: 20px;
+					position: relative;
+				}
+
+				.button-container {
+					cursor: default;
+					height: 100%;
+					padding-right: 17px;
+					padding-top: 7px;
+					position: absolute;
+					right: 0;
+					top: 0;
+					width: 40px;
+					z-index: 2;
+					.box-sizing;
+				}
+
+				&.readonly {
+					border: 1px dashed #ffffff;
+					opacity: 0.7;
+				}
+
+				.custom_checkbox {
+					float: left;
+					margin-right: 8px;
+					margin-top: 1px;
+
+					.icon {
+						border: 1px solid rgba(41, 44, 47, 0.35);
+						box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+					}
+				}
+
+				.title {
+					font-size: 11pt;
+					font-weight: normal;
+					margin: 0px;
+					overflow: hidden;
+				}
+
+				&.inactive .title {
+					.opacity(0.5);
+				}
+
+				.icon.public {
+					display: inline-block;
+					float: right;
+					height: 18px;
+					margin-left: 6px;
+					width: 18px;
+
+					.init-icon-font();
+
+					&:before {
+						content: "\e65c";
+						display: inline-block;
+						font-size: 18px;
+						margin-top: -2px;
+						vertical-align: middle;
+					}
+				}
+
+				.control {
+					cursor: pointer;
+					display: none;
+					float: right;
+					height: 14px;
+					margin-left: 4px;
+					width: 14px;
+
+					.init-icon-font();
+
+					&:before {
+						content: "\e66d";
+						display: inline-block;
+						font-size: 16px;
+						margin-top: -2px;
+						vertical-align: middle;
+					}
+
+					&:hover {
+						.opacity(0.5);
+					}
+				}
+
+				&.expand .control:before {
+					content: "\e671";
+				}
+			}
+
+			.section_title {
+				.control {
+					cursor: pointer;
+					height: 16px;
+					overflow: hidden;
+					width: 16px;
+
+					.init-icon-font();
+
+					&:hover {
+						opacity: 0.6;
+					}
+
+					&:before {
+						content: "\e63b";
+						display: inline-block;
+						font-size: 20px;
+						height: 100%;
+						margin: -2px 0 0 -2px;
+						width: 100%;
+					}
+				}
+
+				.title {
+					font-size: 11pt;
+					padding: 0px;
+					text-transform: none;
+
+					.text {
+						vertical-align: middle;
+					}
+
+					.icon {
+						display: inline-block;
+						height: 20px;
+						vertical-align: middle;
+						width: 20px;
+
+						.init-icon-font();
+
+						&:before {
+							display: inline-block;
+							font-size: 20px;
+							height: 20px;
+							margin-left: -3px;
+							width: 20px;
+						}
+					}
+
+					&.personal .icon:before {
+						content: "\e618";
+					}
+
+					&.shared .icon:before {
+						content: "\e634";
+					}
+
+					&.shared-all .icon:before {
+						content: "\e629";
+					}
+				}
+			}
+		}
+	}
+}

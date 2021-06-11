@@ -1,0 +1,20 @@
+{
+    "Disabled": [
+        true,
+        "bool"
+    ],
+    "IncludeInMobile": [
+        true,
+        "bool"
+    ],
+    "IncludeInDesktop": [
+        false,
+        "bool"
+    ],
+    "RequireInMobile": [
+        [
+            "MailLoginFormWebclient"
+        ],
+        "array"
+    ]
+}

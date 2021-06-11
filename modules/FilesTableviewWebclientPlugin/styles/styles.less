@@ -1,0 +1,159 @@
+.files-list.items_sub_list {
+	float: left;
+	width: 100%;
+	padding: 0px !important;
+
+	.item {
+		.item_content {
+			padding: 6px 16px 6px 0px;
+			white-space: nowrap;
+		}
+
+		cursor: default !important;
+		display: block !important;
+		height: auto !important;
+		max-height: none !important;
+		max-width: none !important;
+		width: 100% !important;
+		margin: 0px !important;
+		padding: 0px;
+		text-align: left !important;
+
+		.image, .name, .icons-container, .actions, &.folder2 .icon {
+			display: inline-block;
+			float: left;
+			line-height: 32px;
+			margin: 0 0 0 12px;
+			text-align: center;
+			vertical-align: middle;
+		}
+		.image {
+			height: 32px;
+			width: 32px;
+
+			img {
+				max-height: 100%;
+				max-width: 100%;
+				vertical-align: middle;
+			}
+
+			.icon {
+				vertical-align: middle;
+			}
+		}
+
+		.icons-container span {
+			vertical-align: middle;
+		}
+		.data {
+			float: right;
+			margin: 0 0 0 12px;
+			.size {
+				text-align: right;
+			}
+		}
+
+		&.folder2 .icon {
+			background: url("../../images/sprites.png");
+			background-position: -440px -360px;
+			height: 32px;
+			width: 33px;
+		}
+	}
+}
+
+.file-preview {
+/*	float: right;
+	background: grey;
+	padding: 40px;*/
+	flex-grow: 1;
+	width: 380px;
+	border-left: 1px solid #eee;
+
+	.panel_top {
+		background: none !important;
+		border-bottom: 0px;
+		padding: 0px;
+		user-select: initial; 
+		text-align: center; 
+		margin: 30px; 
+		font-size: 18px;
+
+		white-space: normal;
+
+		/* Careful, this breaks the word wherever it is without a hyphen */
+		overflow-wrap: break-word;
+		word-wrap: break-word;
+
+		/* Adds a hyphen where the word breaks */
+		-webkit-hyphens: auto;
+		-ms-hyphens: auto;
+		-moz-hyphens: auto;
+		hyphens: auto;
+	}
+}
+
+.view_iframe img {
+	max-height: 200px;
+	max-width: 320px;
+}
+
+.shared-image-table {
+	border-radius: 5px;
+	display: inline-block;
+	height: 18px;
+	width: 18px;
+	overflow: hidden;
+	position: relative;
+	background: #64aedc;
+	color: #fff;
+	line-height: 18px;
+
+	.init-icon-font();
+
+	&:before {
+		display: inline-block;
+		font-size: 18px;
+		height: 100%;
+		width: 100%;
+		content: "\e912";
+	}
+ }
+ 
+ .icons-container {
+	 margin-left: 10px;
+ }
+ .secure-image-table {
+	border-radius: 5px;
+	display: inline-block;
+	height: 18px;
+	width: 18px;
+	overflow: hidden;
+	position: relative;
+	background: #555;
+	color: #fff;
+	line-height: 18px;
+
+	.init-icon-font();
+
+	&:before {
+		display: inline-block;
+		font-size: 18px;
+		height: 100%;
+		width: 100%;
+		content: "\e90a";
+	}
+ }
+
+ .no-public .panel.files .items_list .item.published .icons-container .published_icon {
+	margin: 0;
+	float:	none;
+	display: inline-block;
+	border-radius: 5px;
+	line-height: 18px;
+
+	&:before {
+		display: inline-block;
+		height: 18px;
+	}
+ }

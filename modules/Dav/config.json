@@ -1,0 +1,42 @@
+{
+	"Disabled": [
+		false,
+		"bool"
+	],
+	"AdminPrincipal": [
+		false,
+		"bool"
+	],
+	"CaldavNotification": [
+		false,
+		"bool"
+	],
+	"FilesSharing": [
+		false,
+		"bool"
+	],
+	"LogBody": [
+		false,
+		"bool"
+	],
+	"UseBrowserPlugin": [
+		false,
+		"bool"
+	],
+	"UseDigestAuth": [
+		false,
+		"bool"
+	],
+    "ExternalHostNameOfDAVServer": [
+        "",
+        "string"
+    ],
+	"UseFullEmailForLogin": [
+		true,
+		"bool"
+	],
+    "DomainForLoginWithoutEmail": [
+        "",
+        "string"
+    ]
+}

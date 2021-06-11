@@ -1,0 +1,90 @@
+<div class="popup" style="display: none;">
+	<div class="mask" data-bind="click: cancelPopup"></div>
+	<div class="popup_panel">
+		<span class="close" data-bind="click: cancelPopup"></span>
+		<div class="row">
+			<span class="popup_heading" data-bind="i18n: {'key': '%MODULENAME%/HEADING_SEND_ENCRYPTED_FILE'}"></span>
+		</div>
+		<div class="fields encrypt-popup">
+			<div class="fieldset">
+				<div class="row" style="display: flex; align-items: center;" data-bind="visible: !isSuccessfullyEncryptedAndUploaded() || recipientAutocompleteItem()">
+					<span class="label" data-bind="i18n: {'key': '%MODULENAME%/LABEL_RECIPIENT'}, style: {'vertical-align': 'middle'}"></span>
+					<span class="input select-recipient">
+						<input id="select_recipient_input" class="value" spellcheck="false" type="text" autocomplete="on"
+							data-bind="value: recipientAutocomplete,
+								valueUpdate: ['blur', 'afterkeydown'],
+								autocompleteSimple: {callback: autocompleteCallback.bind($data), dataAccessor: recipientAutocompleteItem},
+								disable: isSuccessfullyEncryptedAndUploaded() || isEncrypting()" />
+						<span class="icon" data-bind="visible: recipientAutocompleteItem() && recipientAutocompleteItem().hasKey"></span>
+					</span>
+				</div>
+				<div data-bind="visible: !isSuccessfullyEncryptedAndUploaded()">
+					<div class="row">
+						<br>
+						<span class="hint" data-bind="text: recipientHintText"></span>
+					</div>
+					<br>
+					<div class="row">
+						<span class="label" data-bind="i18n: {'key': '%MODULENAME%/LABEL_ENCRYPTION_TYPE'}"></span>
+						<span class="value">
+							<label class="custom_radio pgp-encrypt-radio" data-bind="css: {'checked': encryptionBasedMode() === Enums.EncryptionBasedOn.Key, 'disabled': keyBasedEncryptionDisabled() || isEncrypting()}">
+								<span class="icon"></span>
+								<input type="radio" id="tab_key" data-bind="checked: encryptionBasedMode, attr: {'value': Enums.EncryptionBasedOn.Key, 'disabled': keyBasedEncryptionDisabled() || isEncrypting()}" />
+							</label>
+							<label for="tab_key" data-bind="i18n: {'key': '%MODULENAME%/LABEL_KEY_BASED_ENCRYPTION'}, css: {'hint': keyBasedEncryptionDisabled() || isEncrypting()}"></label>
+
+							<label class="custom_radio pgp-encrypt-radio" data-bind="css: {'checked': encryptionBasedMode() === Enums.EncryptionBasedOn.Password, 'disabled': isEncrypting}">
+								<span class="icon"></span>
+								<input type="radio" id="tab_password" data-bind="checked: encryptionBasedMode, attr: {'value': Enums.EncryptionBasedOn.Password, 'disabled': isEncrypting}" />
+							</label>
+							<label for="tab_password" data-bind="i18n: {'key': '%MODULENAME%/LABEL_PASSWORD_BASED_ENCRYPTION'}, css: {'hint': isEncrypting}"></label>
+						</span>
+					</div>
+					<br>
+					<div class="row" data-bind="style: {'visibility': (encryptionBasedMode() !== '') ? 'visible' : 'hidden'}">
+						<span class="hint" data-bind="text: encryptionBasedMode() === '' ? '&nbsp;' : encryptionModeHintText()"></span>
+					</div>
+					<div class="row" data-bind="css: {'disabled': !isSigningAvailable()}">
+						<div style="white-space: nowrap;">
+							<label data-bind="css: {'checked': sign, 'disabled': !isSigningAvailable() || isEncrypting()}" class="custom_checkbox checked">
+								<span class="icon"></span>
+								<input type="checkbox" data-bind="checked: sign, disable: !isSigningAvailable() || isEncrypting()" id="openpgp-sign" />
+							</label>
+							<label data-bind="i18n: {'key': '%MODULENAME%/LABEL_SIGN'}, style: { 'display': 'inline-block', 'margin': '5px 0'}" for="openpgp-sign"></label>
+						</div>
+					</div>
+					<div class="row">
+						<span class="hint" data-bind="text: signFileHintText"></span>
+					</div>
+				</div>
+				<div data-bind="visible: isSuccessfullyEncryptedAndUploaded()">
+					<div class="encryption-result">
+						<div class="hint" data-bind="i18n: {'key': '%MODULENAME%/HINT_ENCRYPTED_FILE_LINK'}"></div>
+						<div class="value" data-bind="text: encryptedFileLink"></div>
+						<div data-bind="visible: encryptedFilePassword() !== '' " style="margin-top: 16px;">
+							<div class="hint" data-bind="i18n: {'key': '%MODULENAME%/HINT_ENCRYPTED_FILE_PASSWORD'}"></div>
+							<div class="value" data-bind="text: encryptedFilePassword"></div>
+						</div>
+					</div>
+					<br>
+					<div class="hint" data-bind="text: hintUnderEncryptionInfo"></div>
+				</div>
+			</div>
+			<div class="buttons">
+				<!-- ko foreach: addButtons -->
+					<!-- ko template: {name: $data.ViewTemplate, data: $data} --><!-- /ko -->
+				<!-- /ko -->
+				<span class="button" data-bind="click: isEncrypting() ? false: encrypt,
+					visible: !isSuccessfullyEncryptedAndUploaded(),
+					css: {'disabled': isEncrypting()}"
+				>
+					<span data-bind="i18n: {'key':  '%MODULENAME%/ACTION_ENCRYPT'}, visible: !isEncrypting()"></span>
+					<span data-bind="i18n: {'key':  '%MODULENAME%/ACTION_ENCRYPT_IN_PROGRESS'}, visible: isEncrypting()"></span>
+				</span>
+				<span class="button" data-bind="click: sendEmail, visible: isSuccessfullyEncryptedAndUploaded() && recipientAutocompleteItem(), text: sendButtonText"></span>
+				<span class="button secondary_button" data-bind="text: cancelButtonText, click: isEncrypting() ? false: cancelPopup, css: {'disabled': isEncrypting()}"></span>
+			</div>
+		</div>
+	</div>
+	<span class="helper"></span>
+</div>

@@ -1,0 +1,37 @@
+<div class="popup" style="display: none;">
+	<div class="mask" data-bind="click: cancelPopup"></div>
+	<div class="popup_panel">
+		<span class="close" data-bind="click: cancelPopup"></span>
+		<span class="popup_heading" data-bind="visible: (popupHeading() !== ''), text: popupHeading"></span>
+		<div class="fields">
+			<div class="items_list simple_list simple_list_history_activity">
+				<div class="item heading">
+					<span class="event_date" data-bind="i18n: {'key': '%MODULENAME%/LABEL_DATE'}"></span>
+					<span class="event_action" data-bind="i18n: {'key': '%MODULENAME%/LABEL_ACTION'}"></span>
+					<span class="event_ip" data-bind="i18n: {'key': '%MODULENAME%/LABEL_IP'}"></span>
+					<span class="event_user" data-bind="i18n: {'key': '%MODULENAME%/LABEL_USER'}"></span>
+				</div>
+				<div class="item item_info" data-bind="visible: isEmptyHistory() || isLoading()">
+					<span data-bind="i18n: {'key': '%MODULENAME%/LABEL_NO_HISTORY'}, visible: isEmptyHistory"></span>
+					<span data-bind="i18n: {'key': 'COREWEBCLIENT/INFO_LOADING'}, visible: isLoading"></span>
+				</div>
+				<!-- ko foreach: historyItems -->
+				<div class="item">
+					<span class="event_date" data-bind="text: time"></span>
+					<span class="event_action" data-bind="text: action"></span>
+					<span class="event_ip" data-bind="text: ip"></span>
+					<span class="event_user" data-bind="text: userPublicId"></span>
+				</div>
+				<!-- /ko -->
+			</div>
+			<span data-bind="visible: oPageSwitcher.pages().length > 0">
+				<!-- ko template: {name: oPageSwitcher.ViewTemplate, data: oPageSwitcher} --><!-- /ko -->
+			</span>
+			<div class="buttons">
+				<span class="button contour_button" data-bind="i18n: {'key': '%MODULENAME%/ACTION_CLEAR_HISTORY'}, click: confirmClearHistory"></span>
+				<span class="button secondary_button" data-bind="i18n: {'key': 'COREWEBCLIENT/ACTION_CLOSE'}, click: cancelPopup"></span>
+			</div>
+		</div>
+	</div>
+	<span class="helper"></span>
+</div>

@@ -1,0 +1,47 @@
+<li class="item" data-bind="css: {
+		'unseen': !seen(), 'selected': selected(), 'checked': checked(),
+		'forwarded': forwarded(), 'answered': answered(), 'deleted': deleted() || threadHideAnimation(),
+		'nosubject': emptySubject(),
+		'threaded':  threadPart(),
+		'show': threadShowAnimation()
+	}">
+	<div class="item-content">
+		<label class="label-checkbox custom_checkbox">
+			<input type="checkbox" data-bind="checked: checked, event: { change: function (item, event) {item.checked(!!event.target.checked); } }">
+			<div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+		</label>
+		<div class="item-inner">
+			<div class="item-title-row">
+				<span class="custom_checkbox flag aurora-icons" data-bind="css: {'flagged': flagged(), 'partial': partialFlagged()}"><i class="icon"></i></span>
+				<div class="item-title" data-bind="text: fromOrToText()"></div>
+				
+				<span class="unified_marker" data-bind="visible: showUnifiedMailboxLabel, text: unifiedMailboxLabelText, style: {'background': unifiedMailboxLabelColor}"></span>
+<!--				<div class="item-after" data-bind="text: friendlySize()"></div>-->
+				<div class="item-after" data-bind="text: date()"></div>
+			</div>
+			<div class="item-subtitle">
+				<span class="badge thread-pin" data-bind="text: threadCount(), visible: threadCountVisible(), click: openThread, css: {'unread': threadUnreadCount() > 0}, customTooltip: threadCountHint"></span>
+				<span data-bind="text: subjectForDisplay()"></span>
+				<span class="importance" data-bind="visible: importance() === Enums.Importance.High"></span>
+				<span class="star" data-bind="css: {'flagged': flagged(), 'partial': partialFlagged()}">
+					<!--<div class="item-media"><i class="icon icon-form-checkbox"></i></div>-->
+				</span>
+			</div>
+			<!--<div class="item-text">Lorem ipsum dolor sit amet...</div>-->
+
+			<span class="attachments has_attachments" data-bind="visible: hasAttachments(),
+				css: {'has_ical_attachment': hasIcalAttachment(), 'has_vcard_attachment': hasVcardAttachment()}"></span>
+
+			<span class="thread-pin loading" data-bind="i18n: {'key': 'COREWEBCLIENT/INFO_LOADING'}, visible: threadLoadingVisible()"></span>
+		</div>
+	</div>
+</li>
+
+<!-- ko if: threadNextLoadingVisible() -->
+<div class="item threaded thread_more_messages" data-bind="css:{'show': threadShowAnimation(), 'deleted': threadHideAnimation()}">
+	<div class="item_content">
+		<span class="link" data-bind="i18n: {'key': '%MODULENAME%/ACTION_LOAD_MORE_MESSAGES'}, click: loadNextMessages, visible: threadNextLoadingLinkVisible()"></span>
+		<span style="color: #999999; font-size: 15px;" data-bind="i18n: {'key': 'COREWEBCLIENT/INFO_LOADING'}, visible: !threadNextLoadingLinkVisible()"></span>
+	</div>
+</div>
+<!-- /ko -->

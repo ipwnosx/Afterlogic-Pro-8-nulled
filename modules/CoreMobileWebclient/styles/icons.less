@@ -1,0 +1,30 @@
+.aurora-icons {
+	.icon {
+		.init-icon-font();
+		//.init-icon-font(after);
+
+		&:before {
+			vertical-align: middle;
+			width: 32px;
+			height: 32px;
+			font-size: 32px;
+			display: inline-block;
+		}
+		
+	}
+	.cssanimations &.rotate .icon:before {
+		.animation(cycle 0.8s linear infinite);
+	}
+			
+	&.edit .icon:before {
+		content: "\e62d";
+	}
+	
+	&.check-state .icon:before {
+		content: "\e607";
+	}
+	
+	&.close .icon:before {
+		content: "\e63e";
+	}
+}

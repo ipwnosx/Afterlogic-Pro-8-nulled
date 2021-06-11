@@ -1,0 +1,14 @@
+{
+    "Disabled": [
+        false,
+        "bool"
+    ],
+    "TrialKeyLink": [
+        "\u003Ca href=\"https:\/\/afterlogic.com\/get-trial-key?productId=afterlogic-aurora-corporate-8\" target=\"_blank\"\u003Ehttps:\/\/afterlogic.com\/get-trial-key?productId=afterlogic-aurora-corporate-8\u003C\/a\u003E",
+        "string"
+    ],
+    "PermanentKeyLink": [
+        "\u003Ca href=\"https:\/\/afterlogic.com\/purchase\/aurora\" target=\"_blank\"\u003Ehttps:\/\/afterlogic.com\/purchase\/aurora\u003C\/a\u003E",
+        "string"
+    ]
+}

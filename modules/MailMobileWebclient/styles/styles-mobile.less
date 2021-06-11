@@ -1,0 +1,84 @@
+//@import "./mobile/toolbar.less";
+//@import "./common/html-editor.less";
+//@import "./mobile/folders.less";
+//@import "./mobile/mail.less";
+//@import "./mobile/compose.less";
+@import "./common/blockquote.less";
+
+
+/*label.label-checkbox input[type="checkbox"],
+.form-checkbox input[type="checkbox"],
+label.label-checkbox input[type="radio"],
+.form-checkbox input[type="radio"]
+{
+	display: block !important;
+	position: absolute;
+	//visibility: hidden;
+}*/
+
+@import "./common/toolbar-icons.less";
+@import "./common/folder-icons.less";
+
+@import "./common/folder-list.less";
+@import "./common/message-list.less";
+@import "./common/message-viewer.less";
+
+
+.inputosaurus {
+	.address_capsule {
+		font-size: 12pt;
+	}
+	
+	.inputosaurus-input input {
+		height: 26px !important;
+	}
+}
+
+.screen.MailLayout.compose-screen {
+	.link.show_cc,
+	.link.show_bcc {
+		margin-right: 10px;
+		z-index: 12345;
+	}
+	
+	.content-block.editor-container {
+		margin: 0 0 16px 0;
+	}
+}
+
+@import "./common/attachments.less";
+
+.ui-autocomplete.ui-front {
+	z-index: 5000;
+	overflow: scroll;
+}
+
+.ui-menu .ui-menu-item {
+	border-bottom: 1px solid #aaa;
+}
+
+.ui-menu .ui-menu-item:last-child {
+	border-bottom: none;
+}
+
+.ui-menu .ui-menu-item .ui-state-active {
+	border: none;
+}
+
+.message-list .item {
+	.unified_marker {
+		display: none;
+	}
+
+	.unified_messages_panel& .unified_marker {
+		background: #959595;
+		border-radius: 10px;
+		color: white;
+		display: inline-block;
+		font-size: 8pt;
+		font-weight: normal;
+		height: fit-content;
+		margin: 3px;
+		padding: 0px 6px 1px;
+	}
+}

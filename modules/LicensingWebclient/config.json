@@ -1,0 +1,14 @@
+{
+    "Disabled": [
+		false,
+		"bool"
+	],
+	"TrialKeyLink": [
+		"",
+		"string"
+	],
+	"PermanentKeyLink": [
+		"",
+		"string"
+	]
+}

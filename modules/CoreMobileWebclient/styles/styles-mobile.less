@@ -1,0 +1,170 @@
+
+@import "../../CoreWebclient/styles/common/@mixins.less";
+@import "../../CoreWebclient/styles/common/fonts.less";
+
+@import "../../CoreWebclient/styles/common/files.less";
+@import "../../CoreWebclient/styles/common/notifications.less";
+
+@import "./animations.less";
+@import "./icons.less";
+
+.auroraMain,
+#auroraContent,
+.screens,
+.screen {
+	height: 100%;
+}
+
+.LoginLayout .content-block {
+	text-align: center;
+	button.button-fill {
+		margin: 0 auto;
+	}
+}
+
+.notifications {
+	.notification-item {
+		opacity: 1;
+		position: relative;
+		.transition(opacity 200ms ease 0s);
+		.transition(~"visibility 0ms linear 0ms, position 0ms linear 0ms");
+		
+		&.hide {
+			.transition(~"visibility 0ms linear 500ms, position 0ms linear 500ms");
+			position: absolute;
+			opacity: 0;
+		}
+	}
+}
+
+.list_notification {
+	text-align: center;
+	color: #999;
+	display: block;
+	padding: 20px 10px;
+	
+	.link {
+		color: initial;
+	}
+}
+
+
+#apps-list {
+	.item-content {
+		color: #000;
+		
+	}
+	
+	.current {
+		font-weight: bold;
+	}
+}
+
+.pagination {
+	font-size: 12pt;
+	padding: 0px 90px 0px 10px;
+	white-space: nowrap;
+	
+	.item {
+		margin: 0px 3px;
+		padding: 2px 2px;
+		vertical-align: middle;
+
+		&.current {
+			background: #6bb3ed;
+			border-radius: 4px;
+		}
+
+		.icon {
+			display: inline-block;
+		}
+
+		&.next, &.last, &.first, &.prev 
+		{
+			padding: 0px;
+			width: 28px;
+			display: inline-block;
+		}
+
+		&.last, &.first {
+			display: none;
+		}
+
+		&.first .icon::before {
+			content: "\e64e";
+		}
+		&.prev .icon::before {
+			content: "\e64b";
+		}
+		&.next .icon::before {
+			content: "\e64c";
+		}
+		&.last .icon::before {
+			content: "\e64d";
+		}
+	}
+}
+
+.compose-more-menu {
+	position: absolute;
+	right: 0;
+	top: 0;
+	background: rgb(33, 150, 243);
+	padding: 10px;
+}
+
+.sharing_panel {
+	border: 1px solid #473d48;
+	border-radius: 5px;
+	font-size: 16px;
+	padding-top: 80px !important;
+	margin-top: 20px !important;
+	
+	.item .size {
+		color: #bbb;
+		margin-top: 6px;
+	}
+	
+	.fields {
+		border-top: 1px solid #473d48;
+		padding-top: 14px;
+		
+		.row {
+			display: flex;
+			align-items: center;
+			margin-bottom: 10px;
+			.label {
+			    display: block;
+				/*flex-shrink: 0;*/
+				margin-right: 10px;
+			}
+			input {
+				width: 100%;
+			}
+		}
+	}
+	
+	.buttons {
+		display: block;
+		margin-bottom: -10px;
+		text-align: center;
+		
+		.button {
+			font-size: 16px;
+			margin-bottom: 10px;
+		}
+	}
+	
+	.video-player-dimensions {
+		width: auto;
+	}
+}
+
+.sharing_panel.media {
+	.fields {
+		width: 280px;
+		margin: 0px auto;
+	}
+}
+
+@import "./overrides.less";

@@ -1,0 +1,46 @@
+<!-- ko if: visible -->
+	<li data-bind="visible: visible(), attr: {'class': 'item folder-level' + (getDisplayedLevel() + 1)},
+		 css: { 'selected': selected, 'canSelect': canBeSelected, 'canNotSelect': !canBeSelected(), 'exists': bExists, 'subscribed': subscribed,
+			'system': isSystem, 'user': !isSystem(), 'virtualEmpty': virtualEmpty, 'accordion': subfolders().length !== 0, 'expanded': expanded(), 'collapsed': !expanded()}">
+		<a class="item-content external" href="#" data-bind="attr: {href: routingHash}, visible: canBeSelected">
+			<div class="item-media aurora-icons">
+				<i class="icon" data-bind="css: 'type' + type()"></i>
+			</div>
+			<div class="item-inner">
+				<div class="item-title" data-bind="text: displayName"></div>
+				<div class="item-after" data-bind="visible: showUnseenMessagesCount, click: executeUnseenFilter">
+					<span class="badge" data-bind="text: unseenMessagesCountToShow"></span>
+				</div>
+				<div class="item-after" data-bind="visible: showMessagesCount">
+					<span data-bind="text: messageCount"></span>
+				</div>
+			</div>
+		</a>
+
+		<span class="item-content" data-bind="visible: !canBeSelected()">
+			<div class="item-media aurora-icons">
+				<i class="icon" data-bind="css: 'type' + type()"></i>
+			</div>
+			<div class="item-inner">
+				<div class="item-title" data-bind="text: displayName, attr: {'id':	(type() === Enums.FolderTypes.Inbox) ? 'selenium_folder_inbox' :
+																						((type() === Enums.FolderTypes.Sent) ? 'selenium_folder_sent' :
+																						((type() === Enums.FolderTypes.Drafts) ? 'selenium_folder_drafts' :
+																						((type() === Enums.FolderTypes.Spam) ? 'selenium_folder_spam' :
+																						((type() === Enums.FolderTypes.Trash) ? 'selenium_folder_trash' : ''))))}"></div>
+				<div class="item-after" data-bind="visible: showUnseenMessagesCount, click: executeUnseenFilter">
+					<span class="badge" data-bind="text: unseenMessagesCountToShow"></span>
+				</div>
+				<div class="item-after" data-bind="visible: showMessagesCount">
+					<span data-bind="text: messageCount"></span>
+				</div>
+			</div>
+		</span>
+		<!-- ko if: !bNamespace -->
+		<div class="children" data-bind="template: { name: '%ModuleName%_FolderView', foreach: subfolders }"></div>
+		<!-- /ko -->
+	</li>
+
+	<!-- ko if: bNamespace -->
+		<!-- ko template: {name: '%ModuleName%_FolderView', foreach: subfolders} --><!-- /ko -->
+	<!-- /ko -->
+<!-- /ko -->

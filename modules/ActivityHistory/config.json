@@ -1,0 +1,10 @@
+{
+    "Disabled": [
+		false,
+		"bool"
+	],
+    "AvailableFor": [
+		["OpenPgpWebclient", "OpenPgpFilesWebclient", "FilesWebclient"],
+		"array"
+	]
+}
